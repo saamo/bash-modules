@@ -2,6 +2,33 @@
 
 This repository consists of few bash scripts (called _modules_ here) which can be easily reused when writing shell scripts.
 
+## Usage
+
+Module is loaded (_sourced_) into a script like this.
+
+```bash
+. modules/module_name.sh
+```
+
+### Available modules
+
+- Log
+
+### Example script
+
+```bash
+#!/usr/bin/env bash
+#
+# Example script
+#
+# Version 1.0.0
+
+# load log module
+. modules/log.sh
+
+log 'Hello world'
+```
+
 ## License
 
 Copyright (c) 2015 Samir Djellil
