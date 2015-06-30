@@ -12,6 +12,7 @@ Module is loaded (_sourced_) into a script like this.
 
 ### Available modules
 
+- Lock
 - Log
 
 ### Example script
@@ -26,7 +27,14 @@ Module is loaded (_sourced_) into a script like this.
 # load log module
 . modules/log.sh
 
-log 'Hello world'
+# load lock module
+. modules/lock.sh
+
+lock || { log 'Only one instance of script can run at one time.'; exit 1; }
+
+# your script starts here
+
+sleep 10
 ```
 
 ## License
