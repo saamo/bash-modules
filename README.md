@@ -14,6 +14,7 @@ Module is loaded (_sourced_) into a script like this.
 
 - Lock
 - Log
+- Magic variables
 
 ### Example script
 
@@ -24,13 +25,16 @@ Module is loaded (_sourced_) into a script like this.
 #
 # Version 1.0.0
 
+# load magic variables module
+. modules/magic_variables.sh
+
 # load log module
 . modules/log.sh
 
 # load lock module
 . modules/lock.sh
 
-lock || { log 'Only one instance of script can run at one time.'; exit 1; }
+lock || { log "Only one instance of script $__FILE can run at one time."; exit 1; }
 
 # your script starts here
 
